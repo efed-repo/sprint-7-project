@@ -1,4 +1,4 @@
-import ApiHelpers.Courier;
+import ApiHelpers.CourierModel;
 import ApiHelpers.CourierApiBase;
 import io.restassured.response.Response;
 import org.junit.Test;
@@ -9,20 +9,20 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 @RunWith(Parameterized.class)
-public class CreateCourierParametrizedTests extends CourierApiBase {
+public class CreateCourierApiParametrizedTests extends CourierApiBase {
 
     private final String login;
     private final String password;
     private final String firstName;
 
-    public CreateCourierParametrizedTests(String login, String password, String firstName) {
+    public CreateCourierApiParametrizedTests(String login, String password, String firstName) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
     }
 
     @Parameterized.Parameters(name = "Создание курьера без одного обязательного параметра: {0} {1} {2}")
-    public static Object[][] getSumData() {
+    public static Object[][] createCourierData() {
         return new Object[][]{
                 {"", "123456", "withoutLogin"},
                 {"withoutPassword", "", "courierName"},
@@ -32,11 +32,11 @@ public class CreateCourierParametrizedTests extends CourierApiBase {
 
     @Test
     public void createCourierWithoutRequiredParamsUnsuccessfulTest() {
-        Courier courier = new Courier(login, password, firstName);
+        CourierModel courierModel = new CourierModel(login, password, firstName);
         Response response = given()
                 .header("Content-type", "application/json")
                 .and()
-                .body(courier)
+                .body(courierModel)
                 .when()
                 .post(COURIER);
         response.then().assertThat().statusCode(400)

@@ -1,6 +1,5 @@
 package ApiHelpers;
 
-import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Before;
@@ -10,33 +9,33 @@ import static io.restassured.RestAssured.given;
 public class CourierApiBase {
 
     protected final String COURIER = "/api/v1/courier";
-    private final String LOGIN = "/api/v1/courier/login";
+    protected final String LOGIN = "/api/v1/courier/login";
 
     @Before
     public void setUp() {
         RestAssured.baseURI = "https://qa-scooter.praktikum-services.ru";
     }
 
-    @Step
+
     public void cleanUP() {
         courierLogin();
         courierDelete();
     }
 
-    @Step
+
     protected Response createCourier() {
-        Courier courier = new Courier("UniqueApiCourier", "123456", "myName");
+        CourierModel courierModel = new CourierModel("UniqueApiCourier_765Api", "123456", "myName");
         Response response = given()
                 .header("Content-type", "application/json")
                 .and()
-                .body(courier)
+                .body(courierModel)
                 .when()
                 .post(COURIER);
         return response;
     }
 
     public Response courierLogin() {
-        String json = "{ \"login\": \"UniqueApiCourier\", \"password\": \"123456\"}";
+        String json = "{ \"login\": \"UniqueApiCourier_765Api\", \"password\": \"123456\"}";
         Response loginResponse = given()
                 .header("Content-type", "application/json")
                 .and()
@@ -47,13 +46,17 @@ public class CourierApiBase {
     }
 
     public void courierDelete() {
-        String loginResponse = courierLogin().asString();
-        String id = loginResponse.substring(6, loginResponse.length() - 1);
-
+        String id = courierGetId();
         given()
                 .header("Content-type", "application/json")
                 .when()
                 .delete(COURIER + "/" + id);
+    }
+
+    public String courierGetId(){
+        String loginResponse = courierLogin().asString();
+        loginResponse = loginResponse.substring(6, loginResponse.length() - 1);
+        return loginResponse;
     }
 
 }
