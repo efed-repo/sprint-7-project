@@ -1,4 +1,4 @@
-import ApiHelpers.CourierApiBase;
+import ApiHelpers.ScooterApiBase;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 
 @RunWith(Parameterized.class)
-public class CourierLoginApiParametrizedTests extends CourierApiBase {
+public class CourierLoginApiParametrizedTests extends ScooterApiBase {
 
     private final String json;
 

@@ -1,11 +1,11 @@
-import ApiHelpers.CourierApiBase;
+import ApiHelpers.ScooterApiBase;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.equalTo;
 
-public class CreateCourierApiTests extends CourierApiBase {
+public class CreateCourierApiTests extends ScooterApiBase {
 
 
     @Test

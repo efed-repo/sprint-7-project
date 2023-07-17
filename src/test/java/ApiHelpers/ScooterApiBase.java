@@ -6,10 +6,11 @@ import org.junit.Before;
 
 import static io.restassured.RestAssured.given;
 
-public class CourierApiBase {
+public class ScooterApiBase {
 
     protected final String COURIER = "/api/v1/courier";
     protected final String LOGIN = "/api/v1/courier/login";
+    protected final String ORDER = "/api/v1/orders";
 
     @Before
     public void setUp() {
