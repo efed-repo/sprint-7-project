@@ -1,4 +1,5 @@
 import ApiHelpers.CourierApiBase;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.Test;
 
@@ -8,6 +9,7 @@ public class CreateCourierApiTests extends CourierApiBase {
 
 
     @Test
+    @DisplayName("Создание курьера, позитивный кейс")
     public void createCourierSuccessTest() {
         Response response = createCourier();
         response.then().assertThat().statusCode(201)
@@ -18,6 +20,7 @@ public class CreateCourierApiTests extends CourierApiBase {
     }
 
     @Test
+    @DisplayName("Создание курьера, с уже существующим логином, негативный кейс")
     public void createCourierWithExistingLoginUnsuccessfulTest() {
         createCourier();
         Response newCourierWithExistingLogin = createCourier();

@@ -1,4 +1,5 @@
 import ApiHelpers.CourierApiBase;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,6 +28,7 @@ public class CourierLoginApiParametrizedTests extends CourierApiBase {
     }
 
     @Test
+    @DisplayName("Логин курьера без одного из параметров, негативный кейс")
     public void courierLoginWithoutRequiredParamsUnsuccessfulTest() {
         Response response = given()
                 .header("Content-type", "application/json")

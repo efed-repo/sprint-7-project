@@ -1,5 +1,6 @@
 import ApiHelpers.CourierModel;
 import ApiHelpers.CourierApiBase;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,6 +32,7 @@ public class CreateCourierApiParametrizedTests extends CourierApiBase {
     }
 
     @Test
+    @DisplayName("Логин курьера с несуществующими данными, негативный кейс")
     public void createCourierWithoutRequiredParamsUnsuccessfulTest() {
         CourierModel courierModel = new CourierModel(login, password, firstName);
         Response response = given()

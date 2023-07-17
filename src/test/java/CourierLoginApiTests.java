@@ -1,4 +1,5 @@
 import ApiHelpers.CourierApiBase;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.Test;
 
@@ -8,6 +9,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class CourierLoginApiTests extends CourierApiBase {
 
     @Test
+    @DisplayName("Логин курьера, позитивный кейс")
     public void courierLoginSuccessfulTest() {
         createCourier();
         Response response = courierLogin();
@@ -20,6 +22,7 @@ public class CourierLoginApiTests extends CourierApiBase {
     }
 
     @Test
+    @DisplayName("Логин курьера, позитивный кейс")
     public void courierLoginWithIncorrectDataUnsuccessfulTest(){
         String json = "{ \"login\": \"IncorrectCourierQw#$Test12\", \"password\": \"1\"}";
         Response response = given()
