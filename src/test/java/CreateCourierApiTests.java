@@ -15,7 +15,7 @@ public class CreateCourierApiTests extends ScooterApiBase {
         response.then().assertThat().statusCode(201)
          .and()
          .assertThat().body("ok", equalTo(true));
-        cleanUP();
+        courierCleanUp();
 
     }
 
@@ -28,7 +28,7 @@ public class CreateCourierApiTests extends ScooterApiBase {
                 .and()
                 .assertThat()
                 .body("message", equalTo("Этот логин уже используется. Попробуйте другой."));
-        cleanUP();
+        courierCleanUp();
     }
 
 }

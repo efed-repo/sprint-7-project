@@ -17,7 +17,7 @@ public class CourierLoginApiTests extends ScooterApiBase {
         response.then().statusCode(200)
                 .and()
                 .assertThat().body("id", equalTo(id));
-        cleanUP();
+        courierCleanUp();
 
     }
 

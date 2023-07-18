@@ -10,10 +10,10 @@ public class OrderModel {
     private String rentTime;
     private String deliveryDate;
     private String comment;
-    //private String[] color;
+    private String[] color;
 
     public OrderModel(String firstName, String lastName, String address, String metroStation, String phone,
-                      String rentTime, String deliveryDate, String comment) {
+                      String rentTime, String deliveryDate, String comment, String[] color) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -22,6 +22,7 @@ public class OrderModel {
         this.rentTime = rentTime;
         this.deliveryDate = deliveryDate;
         this.comment = comment;
+        this.color = color;
 
     }
 
