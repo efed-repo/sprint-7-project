@@ -6,14 +6,13 @@ import io.restassured.response.Response;
 import org.junit.Before;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.notNullValue;
 
 public class ScooterApiBase {
 
-    protected final String COURIER = "/api/v1/courier";
-    protected final String LOGIN = "/api/v1/courier/login";
-    protected final String ORDER = "/api/v1/orders";
-    protected final String ORDER_CANCEL = "/api/v1/orders/cancel";
+    protected static final String COURIER = "/api/v1/courier";
+    protected static final String LOGIN = "/api/v1/courier/login";
+    protected static final String ORDER = "/api/v1/orders";
+    protected static final String ORDER_CANCEL = "/api/v1/orders/cancel";
 
     @Before
     public void setUp() {
@@ -66,13 +65,4 @@ public class ScooterApiBase {
         return loginResponse;
     }
 
-    @Step
-    public void createOrder(){
-
-    }
-
-    @Step
-    public void cancelOrder(){
-
-    }
 }

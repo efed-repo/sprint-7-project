@@ -23,7 +23,7 @@ public class CourierLoginApiParametrizedTests extends ScooterApiBase {
     public static Object[][] courierLoginData() {
         return new Object[][]{
                 {"{ \"login\": \"withoutPassword\", \"password\": \"\"}"},
-                {"{ \"login\": \"\", \"password\": \"withoutLogin\"}"},
+                {"{ \"login\": \"\", \"password\": \"withoutLogin\"}"}
         };
     }
 

@@ -27,12 +27,12 @@ public class CreateCourierApiParametrizedTests extends ScooterApiBase {
         return new Object[][]{
                 {"", "123456", "withoutLogin"},
                 {"withoutPassword", "", "courierName"},
-                {"withoutName", "123456", ""},
+                {"withoutName", "123456", ""}
         };
     }
 
     @Test
-    @DisplayName("Логин курьера с несуществующими данными, негативный кейс")
+    @DisplayName("Создание курьера без одного из обязательных полей, негативный кейс")
     public void createCourierWithoutRequiredParamsUnsuccessfulTest() {
         CourierModel courierModel = new CourierModel(login, password, firstName);
         Response response = given()

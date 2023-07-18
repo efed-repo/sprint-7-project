@@ -13,8 +13,8 @@ public class CreateCourierApiTests extends ScooterApiBase {
     public void createCourierSuccessTest() {
         Response response = createCourier();
         response.then().assertThat().statusCode(201)
-         .and()
-         .assertThat().body("ok", equalTo(true));
+                .and()
+                .assertThat().body("ok", equalTo(true));
         courierCleanUp();
 
     }

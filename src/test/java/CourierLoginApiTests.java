@@ -22,8 +22,8 @@ public class CourierLoginApiTests extends ScooterApiBase {
     }
 
     @Test
-    @DisplayName("Логин курьера, позитивный кейс")
-    public void courierLoginWithIncorrectDataUnsuccessfulTest(){
+    @DisplayName("Логин курьера с некорректными данными, негативный кейс")
+    public void courierLoginWithIncorrectDataUnsuccessfulTest() {
         String json = "{ \"login\": \"IncorrectCourierQw#$Test12\", \"password\": \"1\"}";
         Response response = given()
                 .header("Content-type", "application/json")

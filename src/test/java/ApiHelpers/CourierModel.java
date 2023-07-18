@@ -13,7 +13,8 @@ public class CourierModel {
         this.firstName = firstName;
     }
 
-    public CourierModel(){}
+    public CourierModel() {
+    }
 
 }
 
