@@ -19,13 +19,11 @@ public class ScooterApiBase {
         RestAssured.baseURI = "https://qa-scooter.praktikum-services.ru";
     }
 
-    @Step
     public void courierCleanUp() {
         courierLogin();
         courierDelete();
     }
 
-    @Step
     protected Response createCourier() {
         CourierModel courierModel = new CourierModel("UniqueApiCourier_765Api", "123456", "myName");
         Response response = given()
@@ -37,7 +35,6 @@ public class ScooterApiBase {
         return response;
     }
 
-    @Step
     public Response courierLogin() {
         String json = "{ \"login\": \"UniqueApiCourier_765Api\", \"password\": \"123456\"}";
         Response loginResponse = given()
@@ -49,7 +46,6 @@ public class ScooterApiBase {
         return loginResponse;
     }
 
-    @Step
     public void courierDelete() {
         String id = courierGetId();
         given()
@@ -58,7 +54,6 @@ public class ScooterApiBase {
                 .delete(COURIER + "/" + id);
     }
 
-    @Step
     public String courierGetId() {
         String loginResponse = courierLogin().asString();
         loginResponse = loginResponse.substring(6, loginResponse.length() - 1);

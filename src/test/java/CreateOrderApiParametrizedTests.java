@@ -66,7 +66,6 @@ public class CreateOrderApiParametrizedTests extends ScooterApiBase {
 
     }
 
-    @Step
     private void cancelOrder(int id) {
         given()
                 .header("Content-type", "application/json")
@@ -74,7 +73,6 @@ public class CreateOrderApiParametrizedTests extends ScooterApiBase {
                 .delete(ORDER_CANCEL + "/" + id);
     }
 
-    @Step
     private int getOrderTruck(Response response) {
         String orderResponse = response.asString();
         orderResponse = orderResponse.substring(9, orderResponse.length() - 1);
@@ -82,7 +80,6 @@ public class CreateOrderApiParametrizedTests extends ScooterApiBase {
         return id;
     }
 
-    @Step
     private Response createOrder(OrderModel orderModel) {
         Response response = given()
                 .header("Content-type", "application/json")
