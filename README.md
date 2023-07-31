@@ -6,4 +6,4 @@ Technologies:
 * JUnit 4.13.2
 * Maven 3.8.1
 * RestAssured 5.3.1
-* Allure 2.21.0
+* Allure 2.15.0
